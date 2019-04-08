@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-Wall
 LDFLAGS=
-OBJFILES=utiles.o main.o
+OBJFILES=utiles.o global.o main.o
 TARGET=run
 
 all: $(TARGET)
