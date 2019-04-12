@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
 
 #include "utiles.h"
 
@@ -77,3 +78,31 @@ std::vector<std::vector<double>> transpose( std::vector<std::vector<double>> m, 
   return m_T;
 };
 
+std::vector<double> sigmoid (std::vector<double> v1) {
+
+  int size = v1.size();
+  std::vector<double> output(size);
+  
+  for (int i = 0; i < size; i++) {
+    output[i] = 1 / ( 1 + std::exp(-v1[i]) );
+  };
+
+  return output;
+
+};
+
+
+std::vector<double> sigmoid_d (std::vector<double> v1) {
+
+  int size = v1.size();
+  std::vector<double> output(size);
+  
+  for (int i = 0; i < size; i++) {
+    output[i] = v1[i] * ( 1 - v1[i] );
+  };
+
+  return output;
+
+
+  
+};
