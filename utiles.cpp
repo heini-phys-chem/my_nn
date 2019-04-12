@@ -27,7 +27,7 @@ std::vector<double> substract_vectors(std::vector<double> v1, std::vector<double
 	return v;
 };
 
-double dot(std::vector<double> v1, std::vector<double> v2) {
+double dot_v(std::vector<double> v1, std::vector<double> v2) {
 
 	int size = v1.size();
 	double sum = 0.0;
@@ -38,6 +38,18 @@ double dot(std::vector<double> v1, std::vector<double> v2) {
 
 	return sum;
 };
+
+//std::vector<std::vector<double>> dot_m(std::vector<std::vector<double>> m1, std::vector<std::vector<double>> m2) {
+//
+//	int size = v1.size();
+//	double sum = 0.0;
+//
+//  for (int i = 0; i < 4; i++) {
+//    sum += v1[i] * v2[i];  
+//	};
+//
+//	return sum;
+//};
 
 void print_matrix(std::vector<std::vector<double>>m) {
 
