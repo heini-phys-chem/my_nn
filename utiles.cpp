@@ -1,13 +1,26 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <bits/stdc++.h>
 
 #include "utiles.h"
 
-std::vector<double> add_vectors(std::vector<double> v1, std::vector<double> v2) {
+//typedef std::vector< std::vector<double> > matrix;
+//typedef std::vector<double> vec;
+
+//std::vector<double> read_in_vector() {
+//  std::vector<double> vec(); 
+//
+//  std::ofstream inputFile;  
+//  
+//};
+//std::vector<std::vector<double>> read_in_matrix();
+
+
+vec add_vectors(vec v1, vec v2) {
 
 	int size = v1.size();
-	std::vector<double> v(size);
+	vec v(size);
 
   for (int i = 0; i < 4; i++) {
     v[i] = v1[i] + v2[i];  
@@ -16,10 +29,10 @@ std::vector<double> add_vectors(std::vector<double> v1, std::vector<double> v2) 
 	return v;
 };
 
-std::vector<double> substract_vectors(std::vector<double> v1, std::vector<double> v2) {
+vec substract_vectors(vec v1, vec v2) {
 
 	int size = v1.size();
-	std::vector<double> v(size);
+	vec v(size);
 
   for (int i = 0; i < 4; i++) {
     v[i] = v1[i] - v2[i];  
@@ -28,7 +41,7 @@ std::vector<double> substract_vectors(std::vector<double> v1, std::vector<double
 	return v;
 };
 
-double dot_v(std::vector<double> v1, std::vector<double> v2) {
+double dot_v(vec v1, vec v2) {
 
 	int size = v1.size();
 	double sum = 0.0;
@@ -40,7 +53,7 @@ double dot_v(std::vector<double> v1, std::vector<double> v2) {
 	return sum;
 };
 
-//std::vector<std::vector<double>> dot_m(std::vector<std::vector<double>> m1, std::vector<std::vector<double>> m2) {
+//matrix dot_m(matrix m1, matrix m2) {
 //
 //	int size = v1.size();
 //	double sum = 0.0;
@@ -52,7 +65,7 @@ double dot_v(std::vector<double> v1, std::vector<double> v2) {
 //	return sum;
 //};
 
-void print_matrix(std::vector<std::vector<double>>m) {
+void print_matrix(matrix m) {
 
   for (int i = 0; i < m.size(); i++) {
     for (int j = 0; j < m[i].size(); j++) {
@@ -62,9 +75,9 @@ void print_matrix(std::vector<std::vector<double>>m) {
   };
 };
 
-std::vector<std::vector<double>> transpose( std::vector<std::vector<double>> m, int nRow, int nCol) {
+matrix transpose(matrix m, int nRow, int nCol) {
 
-  std::vector<std::vector<double>> m_T(nCol);
+  matrix m_T(nCol);
   for (int k = 0; k < nCol; k++) {
    m_T[k].resize(nRow);
   };
@@ -78,10 +91,10 @@ std::vector<std::vector<double>> transpose( std::vector<std::vector<double>> m, 
   return m_T;
 };
 
-std::vector<double> sigmoid (std::vector<double> v1) {
+vec sigmoid (vec v1) {
 
   int size = v1.size();
-  std::vector<double> output(size);
+  vec output(size);
   
   for (int i = 0; i < size; i++) {
     output[i] = 1 / ( 1 + std::exp(-v1[i]) );
@@ -92,10 +105,10 @@ std::vector<double> sigmoid (std::vector<double> v1) {
 };
 
 
-std::vector<double> sigmoid_d (std::vector<double> v1) {
+vec sigmoid_d (vec v1) {
 
   int size = v1.size();
-  std::vector<double> output(size);
+  vec output(size);
   
   for (int i = 0; i < size; i++) {
     output[i] = v1[i] * ( 1 - v1[i] );
@@ -103,6 +116,4 @@ std::vector<double> sigmoid_d (std::vector<double> v1) {
 
   return output;
 
-
-  
 };

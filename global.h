@@ -1,6 +1,9 @@
 #include <vector>
 
-extern std::vector<double> pred;
-extern std::vector<double> y;
-extern std::vector<double> w;
-extern std::vector<std::vector<double>> X;
+typedef std::vector< std::vector<double> > matrix;
+typedef std::vector<double> vec;
+
+vec pred;
+vec y;
+vec w;
+matrix X;

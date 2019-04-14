@@ -1,8 +1,18 @@
-std::vector<double> add_vectors(std::vector<double> v1, std::vector<double> v2);
-std::vector<double> substract_vectors(std::vector<double> v1, std::vector<double> v2);
-double dot(std::vector<double> v1, std::vector<double> v2);
-void print_matrix(std::vector<std::vector<double>> m);
-std::vector<std::vector<double>> transpose( std::vector<std::vector<double>> m, int nRow, int nCol);
-//std::vector<std::vector<double>> dot_m(std::vector<std::vector<double>> m1, std::vector<std::vector<double>> m2);
-std::vector<double> sigmoid (std::vector<double> v1);
-std::vector<double> sigmoid_d (std::vector<double> v1);
+typedef std::vector< std::vector<double> > matrix;
+typedef std::vector<double> vec;
+
+vec add_vectors(vec v1, vec v2);
+
+vec substract_vectors(vec v1, vec v2);
+
+double dot(vec v1, vec v2);
+
+void print_matrix(matrix m);
+
+matrix transpose( matrix m, int nRow, int nCol);
+
+vec sigmoid (vec v1);
+
+vec sigmoid_d (vec v1);
+
+vec read_in_vector();

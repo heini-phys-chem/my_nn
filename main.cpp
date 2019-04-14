@@ -5,6 +5,8 @@
 #include "utiles.h"
 #include "global.h"
 
+typedef std::vector< std::vector<double> > matrix;
+typedef std::vector<double> vec;
 
 int main (void) 
 {
@@ -14,7 +16,7 @@ int main (void)
   int nCol = X[0].size();
 
   // define new matrix
-  std::vector<std::vector<double>> X_new(nCol);
+  matrix X_new(nCol);
   std::vector<double> sig(nCol);
 
   X_new = transpose(X, nRow, nCol);
