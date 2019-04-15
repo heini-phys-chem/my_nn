@@ -17,59 +17,59 @@ typedef std::vector<double> vec;
 
 vec add_vectors(vec v1, vec v2) {
 
-	int size = v1.size();
-	vec v(size);
+  int size = v1.size();
+  vec v(size);
 
   for (int i = 0; i < 4; i++) {
     v[i] = v1[i] + v2[i];  
-	};
+  };
 
-	return v;
+  return v;
 };
 
 vec substract_vectors(vec v1, vec v2) {
 
-	int size = v1.size();
-	vec v(size);
+  int size = v1.size();
+  vec v(size);
 
   for (int i = 0; i < 4; i++) {
     v[i] = v1[i] - v2[i];  
-	};
+  };
 
-	return v;
+  return v;
 };
 
 double dot_v(vec v1, vec v2) {
 
-	int size = v1.size();
-	double sum = 0.0;
+  int size = v1.size();
+  double sum = 0.0;
 
   for (int i = 0; i < 4; i++) {
     sum += v1[i] * v2[i];  
-	};
+  };
 
-	return sum;
+  return sum;
 };
 
 matrix dot_m(matrix m1, matrix m2) {
 
-	int nCol1 = m1.size();
-	int nRow1 = m1[0].size();
+  int nCol1 = m1.size();
+  int nRow1 = m1[0].size();
   int nCol2 = m2.size();
 
-	matrix m(nRow1, vec(nCol2));
+  matrix m(nRow1, vec(nCol2));
 
   for (int i = 0; i < nRow1; i++) {
     for (int j = 0; j < nCol2; j++) {
-      for (int k = 0; j < nCol1; j++) {
+      for (int k = 0; k < nCol1; k++) {
 
       m[i][j] += m1[i][k] * m2[k][j];  
 
       };
-	  };
+    };
   };
 
-	return m;
+  return m;
 };
 
 void print_matrix(matrix m) {
