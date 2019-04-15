@@ -17,7 +17,7 @@ int main (void)
 
   // define new matrix
   matrix X_new(nCol);
-  std::vector<double> sig(nCol);
+  vec sig(nCol);
 
   X_new = transpose(X, nRow, nCol);
   sig = sigmoid(y);

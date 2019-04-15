@@ -3,10 +3,10 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-#include "utiles.h"
+//#include "utiles.h"
 
-//typedef std::vector< std::vector<double> > matrix;
-//typedef std::vector<double> vec;
+typedef std::vector< std::vector<double> > matrix;
+typedef std::vector<double> vec;
 
 //std::vector<double> read_in_vector() {
 //  std::vector<double> vec(); 

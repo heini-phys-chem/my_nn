@@ -1,9 +1,10 @@
-//#include <vector>
-#include "global.h"
+#include <vector>
+//#include "global.h"
 
-//typedef std::vector< std::vector<double> > matrix;
-//typedef std::vector<double> vec;
+typedef std::vector< std::vector<double> > matrix;
+typedef std::vector<double> vec;
 //matrix name(sizeX, std::vector<double>(sizeY));
+
 
 vec w = {.5,.5,.5,.5};
 vec y = {0,0,1,1};
