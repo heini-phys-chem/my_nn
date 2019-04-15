@@ -1,5 +1,4 @@
 #include <vector>
-//#include "global.h"
 
 typedef std::vector< std::vector<double> > matrix;
 typedef std::vector<double> vec;

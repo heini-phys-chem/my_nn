@@ -3,8 +3,6 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-//#include "utiles.h"
-
 typedef std::vector< std::vector<double> > matrix;
 typedef std::vector<double> vec;
 
