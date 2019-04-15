@@ -11,6 +11,8 @@ void print_matrix(matrix m);
 
 matrix transpose( matrix m, int nRow, int nCol);
 
+matrix dot_m(matrix m1, matrix m2);
+
 vec sigmoid (vec v1);
 
 vec sigmoid_d (vec v1);
