@@ -12,10 +12,32 @@ int main (void)
 {
 
   // get number of nRows and nCols
-  int nRow = X.size();
-  int nCol = X[0].size();
+  int nCol = X.size();
+  int nRow = X[0].size();
 
-  // define new matrix
+  matrix X_new(nCol);
+  X_new = transpose(X, nRow, nCol);
+
+  for (int i = 0; i < 50; i++) {
+
+    vec pred = sigmoid(dot_m(X_new, w));
+    vec pred_error = substract_vectors(y, pred);
+    vec pred_delta = multiply_vectors(pred_error, sigmoid_d(pred));
+    vec w_delta = dot_m(transpose(X_new, nRow, nCol), pred_delta);
+
+    w = add_vectors(w, w_delta);
+    
+//    if (i == 49) {
+      print_vector(pred);
+      std::cout << std::endl;
+//    };
+  };
+
+	return(0);
+}
+
+/*
+   // define new matrix
   matrix X_new(nCol);
   matrix X_mult(nCol);
   vec sig(nCol);
@@ -37,7 +59,4 @@ int main (void)
   for (int i = 0; i < nRow; i++) {
     std::cout << sig[i] << std::endl;
   };
-
-	return(0);
-}
-
+ */

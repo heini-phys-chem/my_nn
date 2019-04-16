@@ -6,15 +6,6 @@
 typedef std::vector< std::vector<double> > matrix;
 typedef std::vector<double> vec;
 
-//std::vector<double> read_in_vector() {
-//  std::vector<double> vec(); 
-//
-//  std::ofstream inputFile;  
-//  
-//};
-//std::vector<std::vector<double>> read_in_matrix();
-
-
 vec add_vectors(vec v1, vec v2) {
 
   int size = v1.size();
@@ -39,6 +30,19 @@ vec substract_vectors(vec v1, vec v2) {
   return v;
 };
 
+vec multiply_vectors(vec v1, vec v2) {
+
+  int size = v1.size();
+  vec v(size);
+
+  for (int i =0; i < size; i++) {
+    v[i] = v1[i] * v2[i];
+  };
+
+  return v;
+
+};
+
 double dot_v(vec v1, vec v2) {
 
   int size = v1.size();
@@ -51,19 +55,19 @@ double dot_v(vec v1, vec v2) {
   return sum;
 };
 
-matrix dot_m(matrix m1, matrix m2) {
+vec dot_m(matrix m1, vec v2) {
 
   int nCol1 = m1.size();
   int nRow1 = m1[0].size();
-  int nCol2 = m2.size();
+  int nCol2 = v2.size();
 
-  matrix m(nRow1, vec(nCol2));
+  vec m(nRow1);
 
-  for (int i = 0; i < nRow1; i++) {
+  for (int i = 0; i < nCol1; i++) {
     for (int j = 0; j < nCol2; j++) {
-      for (int k = 0; k < nCol1; k++) {
+      for (int k = 0; k < nRow1; k++) {
 
-      m[i][j] += m1[i][k] * m2[k][j];  
+      m[i] += m1[i][k] * v2[j];
 
       };
     };
@@ -81,6 +85,14 @@ void print_matrix(matrix m) {
     std::cout << std::endl;
   };
 };
+
+void print_vector(vec v) {
+
+  for (int i = 0; i < v.size(); i++) {
+      std::cout << v[i] << std::endl;
+    };
+};
+
 
 matrix transpose(matrix m, int nRow, int nCol) {
 
