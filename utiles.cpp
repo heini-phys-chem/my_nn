@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <math.h>
 
 typedef std::vector< std::vector<double> > matrix;
 typedef std::vector<double> vec;
@@ -57,29 +58,31 @@ double dot_v(vec v1, vec v2) {
 
 vec dot_m(matrix m1, vec v2) {
 
-  int nCol1 = m1.size();
-  int nRow1 = m1[0].size();
-  int nCol2 = v2.size();
+  int nRow1 = m1.size();
+  int nCol1 = m1[0].size();
+  int nRow2 = v2.size();
 
-  vec m(nRow1);
+  vec v(nRow1);
 
-  for (int i = 0; i < nCol1; i++) {
-    for (int j = 0; j < nCol2; j++) {
-      for (int k = 0; k < nRow1; k++) {
+  for (int i = 0; i < nRow1; i++) {
+    for (int j = 0; j < nRow2; j++) {
+      //for (int k = 0; k < nCol1; k++) {
 
-      m[i] += m1[i][k] * v2[j];
+      v[i] += m1[i][j] * v2[j];
 
-      };
+      //};
     };
   };
 
-  return m;
+  return v;
 };
 
 void print_matrix(matrix m) {
+  int nRow = m.size();
+  int nCol = m[0].size();
 
-  for (int i = 0; i < m.size(); i++) {
-    for (int j = 0; j < m[i].size(); j++) {
+  for (int i = 0; i < nRow; i++) {
+    for (int j = 0; j < nCol; j++) {
       std::cout << m[i][j] << " ";
     };
     std::cout << std::endl;
@@ -96,9 +99,9 @@ void print_vector(vec v) {
 
 matrix transpose(matrix m, int nRow, int nCol) {
 
-  matrix m_T(nCol);
-  for (int k = 0; k < nCol; k++) {
-   m_T[k].resize(nRow);
+  matrix m_T(nRow);
+  for (int k = 0; k < nRow; k++) {
+   m_T[k].resize(nCol);
   };
 
   for (int i = 0; i < nRow; i++) {
@@ -113,13 +116,13 @@ matrix transpose(matrix m, int nRow, int nCol) {
 vec sigmoid (vec v1) {
 
   int size = v1.size();
-  vec output(size);
+  vec v(size);
   
   for (int i = 0; i < size; i++) {
-    output[i] = 1 / ( 1 + std::exp(-v1[i]) );
+    v[i] = 1 / ( 1 + std::exp(-v1[i]));
   };
 
-  return output;
+  return v;
 
 };
 
@@ -127,12 +130,12 @@ vec sigmoid (vec v1) {
 vec sigmoid_d (vec v1) {
 
   int size = v1.size();
-  vec output(size);
+  vec v(size);
   
   for (int i = 0; i < size; i++) {
-    output[i] = v1[i] * ( 1 - v1[i] );
+    v[i] = v1[i] * (1 - v1[i]);
   };
 
-  return output;
+  return v;
 
 };

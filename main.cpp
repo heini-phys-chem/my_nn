@@ -12,25 +12,49 @@ int main (void)
 {
 
   // get number of nRows and nCols
-  int nCol = X.size();
-  int nRow = X[0].size();
+  int nRow = X.size();
+  int nCol = X[0].size();
 
-  matrix X_new(nCol);
-  X_new = transpose(X, nRow, nCol);
 
   for (int i = 0; i < 50; i++) {
 
-    vec pred = sigmoid(dot_m(X_new, w));
-    vec pred_error = substract_vectors(y, pred);
-    vec pred_delta = multiply_vectors(pred_error, sigmoid_d(pred));
-    vec w_delta = dot_m(transpose(X_new, nRow, nCol), pred_delta);
-
-    w = add_vectors(w, w_delta);
-    
-//    if (i == 49) {
+    //vec pred = sigmoid(dot_m(X, w));
+    //vec pred_error = substract_vectors(y, pred);
+    //vec pred_delta = multiply_vectors(pred_error, sigmoid_d(pred));
+    //vec w_delta = dot_m(transpose(X, nRow, nCol), pred_delta);
+    //w = add_vectors(w, w_delta);
+    vec pred = sigmoid(dot_m(X, w));
+      std::cout << "prediction:" << std::endl;
       print_vector(pred);
       std::cout << std::endl;
-//    };
+
+    vec pred_error = substract_vectors(pred, y);
+      std::cout << "error:" << std::endl;
+      print_vector(pred_error);
+      std::cout << std::endl;
+
+    vec pred_delta = multiply_vectors(pred_error, sigmoid_d(pred));
+      std::cout << "delta:" << std::endl;
+      print_vector(sigmoid_d(pred));
+      std::cout << std::endl;
+
+    vec w_delta = dot_m(transpose(X, nRow, nCol), pred_delta);
+      std::cout << "w delta:" << std::endl;
+      print_vector(w_delta);
+      std::cout << std::endl;
+
+    w = add_vectors(w, w_delta);
+      std::cout << "w:" << std::endl;
+      print_vector(w);
+      std::cout << std::endl;
+
+
+   if (i == 49) {
+      std::cout << std::endl;
+      print_vector(pred);
+      std::cout << std::endl;
+    };
+
   };
 
 	return(0);
@@ -59,4 +83,8 @@ int main (void)
   for (int i = 0; i < nRow; i++) {
     std::cout << sig[i] << std::endl;
   };
+
+
+
+
  */

@@ -5,9 +5,9 @@ typedef std::vector<double> vec;
 //matrix name(sizeX, std::vector<double>(sizeY));
 
 
-vec w = {.5,.5,.5,.5};
-vec y = {0,0,1,1};
-//vec pred = {0.0,0.0,.99,.99};
+vec w = {0.5,0.5,0.5,0.5};
+vec y = {0.0,0.0,1.0,1.0};
+vec pred = {0.0,0.0,.99,.99};
 
 matrix X = {
    {5.1,3.5,1.4,0.2},
