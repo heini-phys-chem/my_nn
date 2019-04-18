@@ -13,7 +13,7 @@ void print_matrix(matrix m);
 
 void print_vector(vec v);
 
-matrix transpose( matrix m, int nRow, int nCol);
+matrix transpose( matrix m);
 
 vec dot_m(matrix m1, vec v2);
 

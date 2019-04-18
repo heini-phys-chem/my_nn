@@ -69,10 +69,12 @@ vec dot_m(matrix m1, vec v2) {
       //for (int k = 0; k < nCol1; k++) {
 
       v[i] += m1[i][j] * v2[j];
+      std::cout << i << " " << j << " " << m1[i][j] << " " << v2[j] << std::endl;
 
       //};
     };
   };
+  std::cout << std::endl;
 
   return v;
 };
@@ -97,7 +99,9 @@ void print_vector(vec v) {
 };
 
 
-matrix transpose(matrix m, int nRow, int nCol) {
+matrix transpose(matrix m) {
+  int nRow = m.size();
+  int nCol = m[0].size();
 
   matrix m_T(nRow);
   for (int k = 0; k < nRow; k++) {
