@@ -25,7 +25,7 @@ vec substract_vectors(vec v1, vec v2) {
   vec v(size);
 
   for (int i = 0; i < 4; i++) {
-    v[i] = v1[i] - v2[i];  
+    v[i] = v2[i] - v1[i];  
   };
 
   return v;
@@ -69,12 +69,12 @@ vec dot_m(matrix m1, vec v2) {
       //for (int k = 0; k < nCol1; k++) {
 
       v[i] += m1[i][j] * v2[j];
-      std::cout << i << " " << j << " " << m1[i][j] << " " << v2[j] << std::endl;
+      //std::cout << i << " " << j << " " << m1[i][j] << " " << v2[j] << std::endl;
 
       //};
     };
   };
-  std::cout << std::endl;
+  //std::cout << std::endl;
 
   return v;
 };

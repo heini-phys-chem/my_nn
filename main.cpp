@@ -25,7 +25,8 @@ int main (void)
 
     vec pred_error = substract_vectors(y, pred);
       //std::cout << "error:" << std::endl;
-      //print_vector(pred_error);
+      print_vector(pred_error);
+      std::cout << std::endl;
       //std::cout << std::endl;
 
     vec pred_delta = multiply_vectors(pred_error, sigmoid_d(pred));
