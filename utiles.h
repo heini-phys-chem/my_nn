@@ -1,5 +1,5 @@
-typedef std::vector< std::vector<double> > matrix;
-typedef std::vector<double> vec;
+typedef std::vector< std::vector<float> > matrix;
+typedef std::vector<float> vec;
 
 vec add_vectors(vec v1, vec v2);
 
@@ -7,7 +7,7 @@ vec substract_vectors(vec v1, vec v2);
 
 vec multiply_vectors(vec v1, vec v2);
 
-double dot(vec v1, vec v2);
+float dot(vec v1, vec v2);
 
 void print_matrix(matrix m);
 
@@ -19,6 +19,6 @@ vec dot_m(matrix m1, vec v2);
 
 vec sigmoid (vec v1);
 
-vec sigmoid_d (vec v1);
+vec sigmoid_d (vec& v1);
 
 vec read_in_vector();

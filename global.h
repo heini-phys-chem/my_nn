@@ -3,12 +3,11 @@
 #ifndef INPUT_VECTORS
 #define INPUT_VECTORS
 
-typedef std::vector< std::vector<double> > matrix;
-typedef std::vector<double> vec;
+typedef std::vector< std::vector<float> > matrix;
+typedef std::vector<float> vec;
 
-extern vec pred;
 extern vec y;
-extern vec w;
+//extern vec w;
 extern matrix X;
 
 #endif

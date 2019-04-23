@@ -4,15 +4,15 @@
 //#include <bits/stdc++.h>
 #include <math.h>
 
-typedef std::vector< std::vector<double> > matrix;
-typedef std::vector<double> vec;
+typedef std::vector< std::vector<float> > matrix;
+typedef std::vector<float> vec;
 
 vec add_vectors(vec v1, vec v2) {
 
   int size = v1.size();
   vec v(size);
 
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i != size; ++i) {
     v[i] = v1[i] + v2[i];  
   };
 
@@ -24,8 +24,8 @@ vec substract_vectors(vec v1, vec v2) {
   int size = v1.size();
   vec v(size);
 
-  for (int i = 0; i < 4; i++) {
-    v[i] = v2[i] - v1[i];  
+  for (int i = 0; i < size; i++) {
+    v[i] = v1[i] - v2[i];  
   };
 
   return v;
@@ -44,10 +44,10 @@ vec multiply_vectors(vec v1, vec v2) {
 
 };
 
-double dot_v(vec v1, vec v2) {
+float dot_v(vec v1, vec v2) {
 
   int size = v1.size();
-  double sum = 0.0;
+  float sum = 0.0;
 
   for (int i = 0; i < 4; i++) {
     sum += v1[i] * v2[i];  
@@ -123,7 +123,7 @@ vec sigmoid (vec v1) {
   vec v(size);
   
   for (int i = 0; i < size; i++) {
-    v[i] = 1 / ( 1 + std::exp(-v1[i]));
+    v[i] = 1 / ( 1 + exp(-v1[i]));
   };
 
   return v;
@@ -131,12 +131,12 @@ vec sigmoid (vec v1) {
 };
 
 
-vec sigmoid_d (vec v1) {
+vec sigmoid_d (vec& v1) {
 
-  int size = v1.size();
+  const unsigned long size = v1.size();
   vec v(size);
   
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i != size; ++i) {
     v[i] = v1[i] * (1 - v1[i]);
   };
 
