@@ -24,3 +24,5 @@ vec sigmoid_d (vec& v1);
 vec read_in_vector();
 
 void read_in_input(matrix &X, vec &y);
+
+void print_mean(vec &pred_error);

@@ -36,6 +36,7 @@ int main (void)
       std::cout << std::endl;
       print_vector(pred);
       std::cout << std::endl;
+      print_mean(pred_error);
     };
 
   };

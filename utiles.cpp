@@ -184,3 +184,15 @@ void read_in_input(matrix &X, vec &y) {
 
   myfile.close();
 };
+
+void print_mean(vec &pred_error) {
+  double mean = 0;
+
+  for (int i = 0; i != 4; i++) {
+    mean += std::abs(pred_error[i]);
+  };
+
+  mean /= 5.;
+
+  std::cout << mean << std::endl;
+};
