@@ -22,3 +22,5 @@ vec sigmoid (vec v1);
 vec sigmoid_d (vec& v1);
 
 vec read_in_vector();
+
+void read_in_input(matrix &X, vec &y);

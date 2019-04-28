@@ -143,3 +143,44 @@ vec sigmoid_d (vec& v1) {
   return v;
 
 };
+
+void read_in_input(matrix &X, vec &y) {
+  std::string line;
+  std::string token;
+  std::string delimiter = ",";
+
+  std::ifstream myfile ("InputData");
+
+  if (!myfile.is_open()) {
+    std::cout << "Could not ope file" << std::endl;
+  };
+
+  int i = 0;
+
+  while ( getline (myfile,line) ) {
+
+    int j = 0;
+    size_t pos = 0;
+
+    while ( (pos = line.find(delimiter) ) != std::string::npos) {
+
+      token = line.substr(0, pos);
+      double tmp = std::stod(token);
+
+      if (j < 4) {
+        X[i][j] = tmp;
+      } else {
+        y[i] = tmp;
+      };
+
+      j++;
+      line.erase(0, pos + delimiter.length());
+
+    };
+
+    i++;
+
+  };
+
+  myfile.close();
+};
