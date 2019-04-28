@@ -79,7 +79,7 @@ vec dot_m(matrix m1, vec v2) {
   return v;
 };
 
-void print_matrix(matrix m) {
+void print_matrix(matrix &m) {
   int nRow = m.size();
   int nCol = m[0].size();
 
@@ -91,7 +91,7 @@ void print_matrix(matrix m) {
   };
 };
 
-void print_vector(vec v) {
+void print_vector(vec &v) {
 
   for (int i = 0; i < v.size(); i++) {
       std::cout << v[i] << std::endl;
