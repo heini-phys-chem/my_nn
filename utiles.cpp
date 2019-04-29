@@ -36,7 +36,7 @@ vec multiply_vectors(vec v1, vec v2) {
   int size = v1.size();
   vec v(size);
 
-  for (int i =0; i < size; i++) {
+  for (int i = 0; i < size; i++) {
     v[i] = v1[i] * v2[i];
   };
 
@@ -49,7 +49,7 @@ float dot_v(vec v1, vec v2) {
   int size = v1.size();
   float sum = 0.0;
 
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < size; i++) {
     sum += v1[i] * v2[i];  
   };
 
@@ -66,20 +66,16 @@ vec dot_m(matrix m1, vec v2) {
 
   for (int i = 0; i < nRow1; i++) {
     for (int j = 0; j < nRow2; j++) {
-      //for (int k = 0; k < nCol1; k++) {
 
       v[i] += m1[i][j] * v2[j];
-      //std::cout << i << " " << j << " " << m1[i][j] << " " << v2[j] << std::endl;
 
-      //};
     };
   };
-  //std::cout << std::endl;
 
   return v;
 };
 
-void print_matrix(matrix &m) {
+void print_matrix(matrix m) {
   int nRow = m.size();
   int nCol = m[0].size();
 
@@ -103,9 +99,9 @@ matrix transpose(matrix m) {
   int nRow = m.size();
   int nCol = m[0].size();
 
-  matrix m_T(nRow);
-  for (int k = 0; k < nRow; k++) {
-   m_T[k].resize(nCol);
+  matrix m_T(nCol);
+  for (int k = 0; k < nCol; k++) {
+   m_T[k].resize(nRow);
   };
 
   for (int i = 0; i < nRow; i++) {
@@ -149,7 +145,8 @@ void read_in_input(matrix &X, vec &y) {
   std::string token;
   std::string delimiter = ",";
 
-  std::ifstream myfile ("InputData");
+  //std::ifstream myfile ("InputData");
+  std::ifstream myfile ("e2_one_hot_for_nn.txt");
 
   if (!myfile.is_open()) {
     std::cout << "Could not ope file" << std::endl;
@@ -167,10 +164,10 @@ void read_in_input(matrix &X, vec &y) {
       token = line.substr(0, pos);
       double tmp = std::stod(token);
 
-      if (j < 4) {
+      if (j < 27) {
         X[i][j] = tmp;
       } else {
-        y[i] = tmp;
+        y[i] = tmp / 100.;
       };
 
       j++;
@@ -187,12 +184,13 @@ void read_in_input(matrix &X, vec &y) {
 
 void print_mean(vec &pred_error) {
   double mean = 0;
+  int size = pred_error.size();
 
-  for (int i = 0; i != 4; i++) {
+  for (int i = 0; i != size; i++) {
     mean += std::abs(pred_error[i]);
   };
 
-  mean /= 5.;
+  mean /= size;
 
   std::cout << mean << std::endl;
 };

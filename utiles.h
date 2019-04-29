@@ -9,7 +9,7 @@ vec multiply_vectors(vec v1, vec v2);
 
 float dot(vec v1, vec v2);
 
-void print_matrix(matrix &m);
+void print_matrix(matrix m);
 
 void print_vector(vec &v);
 

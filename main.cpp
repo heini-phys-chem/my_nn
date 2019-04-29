@@ -9,18 +9,24 @@
 typedef std::vector< std::vector<float> > matrix;
 typedef std::vector<float> vec;
 
+void print_test(std::string s) {
+  std::cout << "print test: " << s << std::endl;
+};
 
 int main (void) 
 {
 
-  matrix X(4);
-  for (int k = 0; k < 4; k++) {
-    X[k].resize(4);
+  matrix X(800);
+  for (int k = 0; k < 800; k++) {
+    X[k].resize(27);
   };
 
-  vec y(4);
+  vec y(800);
 
-  vec w =  {0.5, 0.5, 0.5, 0.5};
+  vec w(27);
+  for (int k = 0; k < 27; k++) {
+    w[k] = 0.5;
+  };
 
   read_in_input(X, y);
 
@@ -32,10 +38,11 @@ int main (void)
     vec w_delta = dot_m(transpose(X), pred_delta);
     w = add_vectors(w, w_delta);
 
+
     if (i == 49) {
       std::cout << std::endl;
-      print_vector(pred);
-      std::cout << std::endl;
+      //print_vector(pred);
+      //std::cout << std::endl;
       print_mean(pred_error);
     };
 
