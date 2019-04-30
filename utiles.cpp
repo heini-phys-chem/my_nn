@@ -167,7 +167,7 @@ void read_in_input(matrix &X, vec &y) {
       if (j < 27) {
         X[i][j] = tmp;
       } else {
-        y[i] = tmp / 100.;
+        y[i] = tmp;
       };
 
       j++;

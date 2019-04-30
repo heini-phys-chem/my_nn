@@ -25,7 +25,7 @@ int main (void)
 
   vec w(27);
   for (int k = 0; k < 27; k++) {
-    w[k] = 0.5;
+    w[k] = 10;
   };
 
   read_in_input(X, y);
