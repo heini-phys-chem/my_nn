@@ -156,7 +156,7 @@ void read_in_input(matrix &X, vec &y) {
       if (j < 27) {
         X[i][j] = tmp;
       } else {
-        y[i] = tmp;
+        y[i] = abs(tmp / 72.2305660171377);
       };
 
       j++;
@@ -181,5 +181,5 @@ void print_mean(vec pred_error) {
 
   mean /= size;
 
-  std::cout << mean << std::endl;
+  std::cout << mean*72.2305660171377 << std::endl;
 };
