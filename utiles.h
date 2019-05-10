@@ -11,18 +11,16 @@ float dot(vec v1, vec v2);
 
 void print_matrix(matrix m);
 
-void print_vector(vec &v);
+void print_vector(vec v);
 
-matrix transpose( matrix m);
+matrix transpose(matrix m);
 
 vec dot_m(matrix m1, vec v2);
 
 vec sigmoid (vec v1);
 
-vec sigmoid_d (vec& v1);
+vec sigmoid_d (vec v1);
 
-vec read_in_vector();
+void read_in_input(matrix& X, vec& y);
 
-void read_in_input(matrix &X, vec &y);
-
-void print_mean(vec &pred_error);
+void print_mean(vec pred_error);

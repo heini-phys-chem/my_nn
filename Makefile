@@ -10,4 +10,4 @@ $(TARGET): $(OBJFILES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
 
 clean:
-	rm -rf $(OBJFILES) $(TARGET) 
+	rm -rf $(OBJFILES) $(TARGET) weights.txt 

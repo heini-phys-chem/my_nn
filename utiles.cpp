@@ -44,17 +44,6 @@ vec multiply_vectors(vec v1, vec v2) {
 
 };
 
-float dot_v(vec v1, vec v2) {
-
-  int size = v1.size();
-  float sum = 0.0;
-
-  for (int i = 0; i < size; i++) {
-    sum += v1[i] * v2[i];  
-  };
-
-  return sum;
-};
 
 vec dot_m(matrix m1, vec v2) {
 
@@ -87,7 +76,7 @@ void print_matrix(matrix m) {
   };
 };
 
-void print_vector(vec &v) {
+void print_vector(vec v) {
 
   for (int i = 0; i < v.size(); i++) {
       std::cout << v[i] << std::endl;
@@ -127,7 +116,7 @@ vec sigmoid (vec v1) {
 };
 
 
-vec sigmoid_d (vec& v1) {
+vec sigmoid_d (vec v1) {
 
   const unsigned long size = v1.size();
   vec v(size);
@@ -182,7 +171,7 @@ void read_in_input(matrix &X, vec &y) {
   myfile.close();
 };
 
-void print_mean(vec &pred_error) {
+void print_mean(vec pred_error) {
   double mean = 0;
   int size = pred_error.size();
 

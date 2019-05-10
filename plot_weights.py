@@ -5,25 +5,20 @@ import matplotlib.pyplot as plt
 def get_data(filename):
   lines = open(filename, 'r').readlines()
 
-  w1, w2, w3, w4 = [ [] for i in range(4) ]
+  w = []
 
   for line in lines:
     tokens = line.split()
-    w1.append( float(tokens[0]) )
-    w2.append( float(tokens[1]) )
-    w3.append( float(tokens[2]) )
-    w4.append( float(tokens[3]) )
+    print(tokens)
+    w.append( [float(i) for i in tokens] )
 
-  return w1, w2, w3, w4
+  return w
 
-def plot_weigths(w1, w2, w3, w4):
-  labels = ['w1', 'w2', 'w3', 'w4']
-  plt.plot(w1, color='b')
-  plt.plot(w2, color='k')
-  plt.plot(w3, color='r')
-  plt.plot(w4, color='g')
+def plot_weigths(ws):
 
-  plt.legend(labels, loc='upper right')
+
+  for w in ws:
+    plt.plot(w)
 
   plt.show()
 
@@ -31,7 +26,7 @@ if __name__ == "__main__":
 
   filename = sys.argv[1]
 
-  w1, w2, w3, w4 = get_data(filename)
+  ws = get_data(filename)
 
-  plot_weigths(w1, w2, w3, w4)
+  plot_weigths(ws)
 
