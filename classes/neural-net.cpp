@@ -358,7 +358,7 @@ void showVectorVals(string label, vector<double> &v)
 
 int main()
 {
-    TrainingData trainData("pip");
+    TrainingData trainData("trainingData_E2.txt");
 
     // e.g., { 3, 2, 1 }
     vector<unsigned> topology;
@@ -395,7 +395,7 @@ int main()
         cout << "Net recent average error: "
                 << myNet.getRecentAverageError() << endl;
     }
-
+    
     cout << endl << "Done" << endl;
 }
 

@@ -21,6 +21,8 @@ if __name__ == "__main__":
   inputData, outputData = get_data(filename)
 
   sone_scheiss = max(outputData)
+  print(max(outputData))
+  exit()
   outputData /= max(outputData)
 
   print("topology: 27 4 1")
